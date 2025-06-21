@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillCraft Task 1 | Amisha</title>
+  <l nk href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f2f5;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      color: white;
+      z-index: 1000;
+    }
+
+    .logo { font-weight: bold; font-size: 1.2em; }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255,255,255,0.2);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .content { padding-top: 80px; }
+
+    section {
+      min-height: 100vh;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 2em;
+      color: #333;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 0.6s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    section:nth-child(even) { background: #e0e7ff; }
+    section:nth-child(odd) { background: #c7d2fe; }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 0.7em;
+      background: #6a11cb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2575fc;
+    }
+
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 600px) {
+      nav { flex-direction: column; align-items: flex-start; }
+      nav a { margin: 5px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">MyLandingPage</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="content">
+    <section id="home">Home <button>Learn More</button></section>
+    <section id="about">About <button>Our Story</button></section>
+    <section id="services">Services <button>View Services</button></section>
+    <section id="contact">Contact <button>Get in Touch</button></section>
+  </div>
+
+  <footer>&copy; 2025 MyLandingPage. All rights reserved.</footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.querySelectorAll('section').forEach(sec => {
+        if (sec.getBoundingClientRect().top < window.innerHeight - 100) { 
+          sec.classList.add('visible');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
